@@ -12,10 +12,19 @@
 <div ng-controller="DashboardController">
 <h1>{{ today }}</h1>
 <h2>Welcome back {{name}}</h2>
+<input ng-model="entryInput" type="text" placeholder="New Entry" />
+<h2>{{ 15 || blankIfNegative }}</h2>
+<h2>{{ -15 || blankIfNegative}}</h2>
+<ul>
+<li ng-repeat="events in events | excludeByDate">{{event.summary}}</li>
+
+</ul>
 </div>
 <!-- Library files -->
 <script src="lib/angular.js"></script>
 <script src="lib/angular-route.js"></script>
+<script src="lib/chrono.min.js"></script>
+
 <!-- App files -->
 <script src="js/filters.js"></script>
 <script src="js/controllers.js"></script>
