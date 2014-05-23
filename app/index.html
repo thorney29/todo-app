@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" ng-app="myApp">
 <head>
 	<meta charset="utf-8">
@@ -8,7 +8,11 @@
 	<meta name="viewport" content="width=device-width">
 </head>
 
-<body>
+<body ng-controller="FrameController">
+<div ng-controller="DashboardController">
+<h1>{{ today }}</h1>
+<h2>Welcome back {{name}}</h2>
+</div>
 <!-- Library files -->
 <script src="lib/angular.js"></script>
 <script src="lib/angular-route.js"></script>
