@@ -9,17 +9,20 @@
 </head>
 
 <body ng-controller="FrameController">
-<div ng-controller="DashboardController">
-<h1>{{ today }}</h1>
-<h2>Welcome back {{name}}</h2>
-<input ng-model="entryInput" type="text" placeholder="New Entry" />
-<h2>{{ 15 || blankIfNegative }}</h2>
-<h2>{{ -15 || blankIfNegative}}</h2>
-<ul>
-<li ng-repeat="events in events | excludeByDate">{{event.summary}}</li>
+	<div ng-controller="DashboardController">
+		<h1>{{ today }}</h1>
+		<h2>Welcome back {{name}}</h2>
+		<input ng-model="newEntry.date" type="text" placeholder="New Entry" />
 
-</ul>
-</div>
+		<div our-calendar ng-model='newEntry.date' showshortmonth='true'>
+			<h3>Today</h3>
+		</div>
+	 
+		<ul>
+		<li ng-repeat="events in events | excludeByDate">{{event.summary}}</li>
+
+		</ul>
+	</div>
 <!-- Library files -->
 <script src="lib/angular.js"></script>
 <script src="lib/angular-route.js"></script>
