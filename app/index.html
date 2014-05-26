@@ -9,7 +9,7 @@
 </head>
 
 <body ng-controller="FrameController">
-	<div ng-controller="DashboardController">
+	<header><div ng-controller="DashboardController">
 		<h1>{{ today }}</h1>
 		<h2>Welcome back {{name}}</h2>
 		<input ng-model="newEntry.date" type="text" placeholder="New Entry" />
@@ -23,6 +23,8 @@
 
 		</ul>
 	</div>
+	</header>
+	
 <!-- Library files -->
 <script src="lib/angular.js"></script>
 <script src="lib/angular-route.js"></script>
