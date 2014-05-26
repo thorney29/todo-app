@@ -3,28 +3,36 @@
 <head>
 	<meta charset="utf-8">
 	<title>TodoIt</title>
-	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/foundation.min.css" />
 	<link rel="stylesheet" href="css/app.css" />
+<link rel="stylesheet" href="css/app.css" />
 	<meta name="viewport" content="width=device-width">
 </head>
 
 <body ng-controller="FrameController">
-	<header><div ng-controller="DashboardController">
-		<h1>{{ today }}</h1>
-		<h2>Welcome back {{name}}</h2>
-		<input ng-model="newEntry.date" type="text" placeholder="New Entry" />
+  <header>
+    <div class="row">
+      <div id="logo" class="large-4 small-4 columns">
+        <h1><a href='index.html'>Todo it</a></h1>
+      </div>
+      <div id="time" class="large-4 small-4 columns">
+        <h1>{{ today.today | date: 'fullDate'  }}</h1>
+        <span>{{ user.timezone }}</span>
+      </div>
+      <div id="info" class="large-4 small-4 columns">
+        <ul class="inline-list" ng-show="!user.details">
+          <li class=""><a id="login_or_signup" href="#/login">Login or signup</a></li>
+        </ul>
+        <ul class="inline-list" ng-show="user.details">
+          <li class=""><a>Welcome back {{ user.details.name }}</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
-		<div our-calendar ng-model='newEntry.date' showshortmonth='true'>
-			<h3>Today</h3>
-		</div>
-	 
-		<ul>
-		<li ng-repeat="events in events | excludeByDate">{{event.summary}}</li>
+  <div class="viewContent" ng-view></div>
 
-		</ul>
-	</div>
-	</header>
-	
+
 <!-- Library files -->
 <script src="lib/angular.js"></script>
 <script src="lib/angular-route.js"></script>
